@@ -9,7 +9,7 @@ const UniqueList= [
         Menu.map((curElem)=>{
         return curElem.category;
     })
-) 
+), "All"
 ];
 
 const Resturant = () =>{
@@ -19,6 +19,11 @@ const Resturant = () =>{
 
     const filterItem = 
     (category)=>{
+
+        if(category === "All"){
+            setMenuData(Menu);
+            return;
+        }
         const updateList = Menu.filter((curElem)=>{
             return curElem.category === category
         });
@@ -30,7 +35,7 @@ const Resturant = () =>{
     <>
 
     
-    <Navbar filterItem = {filterItem}/>
+    <Navbar filterItem = {filterItem} menuList= {menuList}/>
     <Menucard menuData={menuData}/>
    
     </>
